@@ -1,0 +1,8 @@
+import numpy as np
+
+np.random.seed(42)
+hours = np.arange(24)
+base_lux_curve = np.maximum(0, 100_000 * np.exp(-0.5 * ((hours - 12) / 3)**2))
+noise = np.random.normal(0, 0.1, size=24)
+lux_with_variation = base_lux_curve * (1 + noise)
+lux_with_variation = np.clip(lux_with_variation, 0, None)
