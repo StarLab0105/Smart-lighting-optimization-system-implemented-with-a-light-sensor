@@ -50,9 +50,26 @@ lux_20 = 0
 lux_21 = 0
 lux_22 = 0
 lux_23 = 0
-lux_24 = 0 '
+lux_24 = 0
 
-lux_day = [lux_01,lux_02,lux_03,lux_04,lux_05,lux_06,lux_07,lux_08,lux_09,lux_10,lux_11,lux_12,lux_13,lux_14,lux_15,lux_16 ,lux_17,lux_18,lux_19,lux_20,lux_21,lux_22,lux_23,lux_24]
+lux_data_day = [lux_01,lux_02,lux_03,lux_04,lux_05,lux_06,lux_07,lux_08,lux_09,lux_10,lux_11,lux_12,lux_13,lux_14,lux_15,lux_16 ,lux_17,lux_18,lux_19,lux_20,lux_21,lux_22,lux_23,lux_24]
+
+day_size = len(lux_data_day)
+
+for i in range(day_size):
+    if lux_data_day[i] > 2000:
+        set_light = 0
+        lux_data_day[i] = 0
+    elif lux_data_day[i] > 1600:
+        set_light = 40
+        lux_data_day[i] *= 0.6
+    elif lux_data_day[i] > 1200:
+        set_light = 80
+        lux_data_day[i] *= 0.8
+    else:
+        set_light = 100
+        lux_data_day[i] *= 1
+    print(i+1, '시 -',lux_data_day[i],'lux 사용')
 
 
 
